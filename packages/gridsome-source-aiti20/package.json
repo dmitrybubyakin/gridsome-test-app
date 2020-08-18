@@ -1,0 +1,12 @@
+{
+  "name": "gridsome-source-aiti20",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "gridsome-plugin"
+  ],
+  "dependencies": {
+    "nodejs-web-scraper": "^3.1.7"
+  }
+}

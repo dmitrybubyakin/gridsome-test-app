@@ -1,6 +1,7 @@
 {
   "name": "gridsome-test-app",
   "private": true,
+  "workspaces": ["packages/*"],
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
