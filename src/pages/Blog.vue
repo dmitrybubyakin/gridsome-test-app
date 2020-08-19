@@ -2,17 +2,17 @@
   <Layout>
     <h1 class="text-4xl text-center font-medium">Блог компании</h1>
 
-    <PostPreview v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
+    <PostList :posts="posts" />
   </Layout>
 </template>
 
 <page-query>
 query {
-  posts: allAiti20BlogPost {
+  posts: allPost {
     edges {
       node {
         id
-        slug
+        path
         title
         excerpt
         published_at
@@ -24,7 +24,8 @@ query {
 </page-query>
 
 <script>
-import PostPreview from '~/components/PostPreview'
+import PostList from '~/components/PostList'
+import Post from '~/models/Post'
 
 export default {
   metaInfo: {
@@ -32,7 +33,13 @@ export default {
   },
 
   components: {
-    PostPreview,
+    PostList,
+  },
+
+  computed: {
+    posts() {
+      return this.$page.posts.edges.map((edge) => new Post(edge.node))
+    },
   },
 }
 </script>

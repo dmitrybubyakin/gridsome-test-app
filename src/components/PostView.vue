@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="relative bg-white rounded shadow hover:shadow-lg transition-all duration-150 transform hover:-translate-y-1"
-  >
+  <div class="bg-white rounded shadow">
     <g-image
       v-if="post.preview_image"
       :src="post.preview_image"
@@ -16,12 +14,14 @@
         {{ post.publishedAtFormatted }}
       </div>
       <div class="mt-4">
-        <p>
-          {{ post.excerpt }}
+        <p v-for="(line, index) in post.content" :key="index">
+          {{ line }}
         </p>
       </div>
+      <div class="flex mt-4">
+        <a :href="post.origin" target="_blank" class="ml-auto underline text-blue-500 hover:no-underline">Оригинал</a>
+      </div>
     </div>
-    <g-link :to="post.path" class="absolute inset-0 opacity-0">Далее</g-link>
   </div>
 </template>
 

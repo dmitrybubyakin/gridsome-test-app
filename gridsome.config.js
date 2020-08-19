@@ -10,10 +10,15 @@ module.exports = {
     {
       use: 'gridsome-source-aiti20',
       options: {
+        typeName: 'Post',
         crawlerOptions: {
           filePath: path.resolve(__dirname, './src/assets/dynamic-content/blog'),
         },
       },
     },
   ],
+
+  templates: {
+    Post: '/blog/:slug',
+  },
 }
