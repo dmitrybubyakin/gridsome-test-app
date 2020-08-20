@@ -14,8 +14,7 @@ query {
 
 <style>
 html {
-  @apply font-sans antialiased min-h-full text-gray-900;
-  background: linear-gradient(-15deg, theme('colors.gray.200') 0%, theme('colors.white') 100%);
+  @apply bg-gradient-to-br from-white to-gray-300 font-sans antialiased min-h-full text-gray-900;
   background-attachment: fixed;
 }
 </style>

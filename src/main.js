@@ -11,4 +11,11 @@ export default function (Vue, { router, head, isClient }) {
   })
 
   Vue.component('Layout', DefaultLayout)
+
+  router.addRoutes([
+    {
+      path: '/',
+      redirect: '/blog/',
+    },
+  ])
 }
