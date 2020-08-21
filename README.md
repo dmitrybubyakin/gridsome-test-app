@@ -1,14 +1,27 @@
-# Default starter for Gridsome
+# Gridsome Test App
 
-This is the project you get when you run `gridsome create new-project`.
+ - `cp .env.example .env`
 
-### 1. Install Gridsome CLI tool if you don't have
 
-`npm install --global @gridsome/cli`
+## Deploy from Google Sheets
 
-### 2. Create a Gridsome project
+1. Create hook - https://vercel.com/docs/v2/more/deploy-hooks
+2. Add the following script to Google Sheets
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+```js
+function onOpen(event) {
+    var menu = SpreadsheetApp.getUi().createMenu('Website')
+
+    menu.addItem('Deploy', 'deploy')
+
+    menu.addToUi()
+}
+
+function deploy() {
+    var hook = 'DEPLOYMENT_HOOK'
+
+    var response = JSON.parse(UrlFetchApp.fetch(hook).getContentText())
+
+    SpreadsheetApp.getUi().alert('Deployment state: ' + response.job.state)
+}
+```

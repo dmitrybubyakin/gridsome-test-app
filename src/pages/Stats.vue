@@ -3,7 +3,7 @@
     <h1 class="text-4xl text-center font-medium">Stats</h1>
 
     <div class="mt-16">
-      <div v-for="edge in $page.stats.edges" :key="edge.node.key" class="flex p-2 hover:bg-gray-300">
+      <div v-for="edge in $page.stats.edges.reverse()" :key="edge.node.key" class="flex p-2 hover:bg-gray-300">
         <div class="w-2/3">
           <span class="font-light">{{ edge.node.key }}</span>
         </div>
