@@ -1,0 +1,12 @@
+{
+  "name": "gridsome-source-google-sheets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "gridsome-plugin"
+  ],
+  "dependencies": {
+    "googleapis": "^59.0.0"
+  }
+}

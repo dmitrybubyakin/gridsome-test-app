@@ -16,6 +16,19 @@ module.exports = {
         },
       },
     },
+    {
+      use: 'gridsome-source-google-sheets',
+      options: {
+        apiKey: process.env.GOOGLE_API_KEY,
+        spreadsheets: [
+          {
+            spreadsheetId: '16FSRrGvJZwT5qzDcFkMFENTANpo_NhRRtB7syPGhVoE',
+            sheets: [{ typeName: 'Stats', range: 'Stats' }],
+          },
+        ],
+        generateNodes: (rows) => rows.map((row) => ({ key: row[0], value: row[1] })),
+      },
+    },
   ],
 
   templates: {
