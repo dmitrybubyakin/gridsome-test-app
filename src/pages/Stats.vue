@@ -3,12 +3,12 @@
     <h1 class="text-4xl text-center font-medium">Stats</h1>
 
     <div class="mt-16">
-      <div v-for="edge in $page.stats.edges.reverse()" :key="edge.node.key" class="flex p-2 hover:bg-gray-300">
+      <div v-for="stat in stats" :key="stat.key" class="flex p-2 hover:bg-gray-300">
         <div class="w-2/3">
-          <span class="font-light">{{ edge.node.key }}</span>
+          <span class="font-light">{{ stat.key }}</span>
         </div>
         <div class="w-1/3">
-          <span>{{ edge.node.value }}</span>
+          <span>{{ stat.value }}</span>
         </div>
       </div>
     </div>
@@ -32,6 +32,12 @@ query {
 export default {
   metaInfo: {
     title: 'Stats',
+  },
+
+  computed: {
+    stats() {
+      return this.$page.stats.edges.map((edge) => edge.node).reverse()
+    },
   },
 }
 </script>
